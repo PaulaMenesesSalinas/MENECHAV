@@ -1,0 +1,1535 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Menechav Ltda. — Servicios industriales y obras para minería, energía e infraestructura en la Región de Antofagasta (Mejillones)."
+    />
+    <title>Menechav Ltda. | Servicios industriales en Antofagasta</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --panel: #111111;
+        --panel2: #151515;
+        --text: #ffffff;
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --line: rgba(255, 255, 255, 0.1);
+        --brand: #ff6b2c;
+        --brand2: #e85a1f;
+        --shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
+        --radius: 18px;
+        --radius2: 26px;
+        --max: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          sans-serif;
+        background:
+          radial-gradient(
+            1000px 600px at 20% 25%,
+            rgba(255, 107, 44, 0.14),
+            transparent 55%
+          ),
+          radial-gradient(
+            800px 500px at 85% 30%,
+            rgba(255, 107, 44, 0.1),
+            transparent 55%
+          ),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* Layout helpers */
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 107, 44, 0.28);
+        background: rgba(255, 107, 44, 0.08);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 0.92rem;
+        backdrop-filter: blur(12px);
+      }
+      .pill b {
+        font-family:
+          "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        font-size: 0.78rem;
+        color: var(--brand);
+        text-transform: uppercase;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 18px;
+        border-radius: 999px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        border: 1px solid transparent;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+        cursor: pointer;
+        user-select: none;
+        white-space: nowrap;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--brand), var(--brand2));
+        box-shadow: 0 14px 40px rgba(255, 107, 44, 0.22);
+        color: #0a0a0a;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 55px rgba(255, 107, 44, 0.3);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.14);
+        color: var(--text);
+      }
+      .btn-ghost:hover {
+        border-color: rgba(255, 107, 44, 0.45);
+        background: rgba(255, 107, 44, 0.07);
+        transform: translateY(-1px);
+      }
+      .btn small {
+        font-weight: 600;
+        color: rgba(10, 10, 10, 0.75);
+      }
+      .btn-ghost small {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* Top bar */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: rgba(10, 10, 10, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 0;
+        gap: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 220px;
+      }
+      .brand img {
+        height: 120px;
+        width: auto;
+        padding: 0;
+        background: none;
+        border: none;
+      }
+      .brand .name {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+      .brand .name strong {
+        font-size: 1.02rem;
+        letter-spacing: -0.2px;
+      }
+      .brand .name span {
+        font-size: 0.84rem;
+        color: var(--muted2);
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .menu a {
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 10px 10px;
+        border-radius: 10px;
+        transition:
+          background 0.18s ease,
+          color 0.18s ease;
+      }
+      .menu a:hover {
+        background: rgba(255, 107, 44, 0.08);
+        color: #fff;
+      }
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+      @media (max-width: 920px) {
+        .menu {
+          display: none;
+        }
+        .menu-toggle {
+          display: inline-flex;
+        }
+      }
+
+      /* Hero (background image tuned for desktop + mobile) */
+      .hero {
+        padding: 56px 0 10px; /* reducido para que el sitio no se sienta largo */
+        position: relative;
+
+        /* Background layers */
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 0.88) 0%,
+            rgba(10, 10, 10, 0.6) 45%,
+            rgba(10, 10, 10, 0.15) 100%
+          ),
+          url("assets/hero-gnl.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        /* Focus on the tank (desktop) */
+        background-position: 35% 65%;
+      }
+
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        line-height: 1.05;
+        letter-spacing: -1.4px;
+        margin: 14px 0 14px;
+      }
+      .hero h1 span {
+        background: linear-gradient(135deg, var(--brand), var(--brand2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        font-size: 1.08rem;
+        color: var(--muted);
+        margin: 0 0 20px;
+        max-width: 64ch;
+      }
+      .hero .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius2);
+        box-shadow: var(--shadow);
+      }
+      .hero-card {
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -80px;
+        background:
+          radial-gradient(
+            260px 260px at 30% 20%,
+            rgba(255, 107, 44, 0.2),
+            transparent 70%
+          ),
+          radial-gradient(
+            220px 220px at 70% 60%,
+            rgba(255, 107, 44, 0.14),
+            transparent 70%
+          );
+        pointer-events: none;
+      }
+      .hero-card > * {
+        position: relative;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: rgba(10, 10, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .badge i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--brand);
+        box-shadow: 0 0 0 6px rgba(255, 107, 44, 0.14);
+        display: inline-block;
+      }
+
+      .hero-card .lines {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .line {
+        padding: 12px 12px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+      }
+      .line .k {
+        color: var(--muted2);
+        font-size: 0.86rem;
+        font-weight: 600;
+      }
+      .line .v {
+        font-weight: 800;
+        margin-top: 2px;
+        letter-spacing: -0.2px;
+      }
+      .line .v a {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.25);
+      }
+      .line .v a:hover {
+        text-decoration-color: rgba(255, 107, 44, 0.6);
+      }
+
+      /* Tablet / Mobile layout */
+      @media (max-width: 920px) {
+        .hero .wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Mobile: different crop so the tank stays visible */
+      @media (max-width: 768px) {
+        .hero {
+          /* tweak this if needed: 50–65% works well depending on your phone */
+          background-position: 55% 70%;
+        }
+      }
+
+      /* Section styling */
+      section {
+        padding: 56px 0;
+      } /* reducido */
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+        letter-spacing: -0.8px;
+        line-height: 1.15;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 70ch;
+      }
+      .section-label {
+        font-family:
+          "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 107, 44, 0.95);
+        font-size: 0.78rem;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      /* Services */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+      .service {
+        grid-column: span 6;
+        padding: 22px;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(0, 0, 0, 0.18)
+        );
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .service:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 107, 44, 0.34);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 107, 44, 0.08),
+          rgba(0, 0, 0, 0.2)
+        );
+      }
+      .service h3 {
+        margin: 10px 0 8px;
+        font-size: 1.15rem;
+        letter-spacing: -0.2px;
+      }
+      .service p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--brand), var(--brand2));
+        color: #0a0a0a;
+        font-weight: 900;
+        box-shadow: 0 12px 35px rgba(255, 107, 44, 0.18);
+      }
+      .service ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .service li {
+        margin: 6px 0;
+      }
+      @media (max-width: 920px) {
+        .service {
+          grid-column: span 12;
+        }
+      }
+
+      /* Clients / Logos */
+      .logos {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .logo-tile {
+        grid-column: span 3;
+
+        height: 110px; /* MÁS GRANDE */
+        border-radius: 18px; /* más elegante */
+
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        overflow: hidden;
+
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .logo-tile:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 107, 44, 0.22);
+        background: rgba(0, 0, 0, 0.28);
+      }
+
+      .logo-tile img {
+        max-width: 78%;
+        max-height: 56%;
+        object-fit: contain;
+        opacity: 0.95;
+        filter: grayscale(1) brightness(1.18);
+        transition:
+          filter 0.18s ease,
+          opacity 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      .logo-tile:hover img {
+        filter: grayscale(0) brightness(1.05);
+        opacity: 1;
+        transform: scale(1.02);
+      }
+
+      /* Texto fallback: solo se ve si el logo falla */
+      .logo-fallback {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        color: rgba(255, 255, 255, 0.82);
+        opacity: 0; /* se activa con onerror */
+      }
+
+      /* Responsive */
+      @media (max-width: 920px) {
+        .logo-tile {
+          grid-column: span 4;
+        }
+      }
+      @media (max-width: 520px) {
+        .logo-tile {
+          grid-column: span 6;
+          height: 64px;
+        }
+        .logo-tile img {
+          max-height: 52%;
+        }
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+
+      .project {
+        grid-column: span 6;
+        padding: 18px;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.28);
+        min-height: 170px;
+        box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .project:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 107, 44, 0.28);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.55);
+      }
+
+      .project b {
+        display: block;
+        margin: 0 0 6px;
+        font-size: 1.05rem;
+        letter-spacing: -0.2px;
+      }
+
+      .project .meta {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+
+      .project .desc {
+        margin: 10px 0 0;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 62ch;
+      }
+
+      /* Background image layer (uses --bg in inline style) */
+      .project::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--bg);
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.03);
+        filter: saturate(1.05) contrast(1.05);
+        z-index: 0;
+      }
+
+      /* Overlay for readability + nicer look */
+      .project::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            900px 260px at 15% 15%,
+            rgba(255, 107, 44, 0.18),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.18) 0%,
+            rgba(0, 0, 0, 0.78) 78%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.35) 55%,
+            rgba(0, 0, 0, 0.55) 100%
+          );
+        z-index: 0;
+      }
+
+      /* Texto por encima */
+      .project > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* MONESA — mostrar personas y camionetas */
+      .project.monesa::before {
+        background-position: center 5%; /* encuadre alto */
+        transform: scale(1); /* sin zoom */
+        filter: brightness(0.95) contrast(1.1) saturate(1.05);
+      }
+
+      /* ===== MOBILE ===== */
+
+      @media (max-width: 920px) {
+        .project {
+          grid-column: span 12;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .project {
+          padding: 16px;
+          min-height: 190px;
+        }
+
+        /* Ajuste específico MONESA en móvil */
+        .project.monesa::before {
+          background-position: center 2%;
+        }
+      }
+
+      /* Imagen */
+      .project::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--bg);
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.03);
+        z-index: 0;
+      }
+
+      /* Oscurecimiento para leer texto */
+      .project::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.75) 75%
+        );
+        z-index: 0;
+      }
+
+      /* Texto por encima */
+      .project > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Contact */
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 16px;
+        align-items: start;
+      }
+      .contact .panel {
+        padding: 22px;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.25);
+      }
+      .item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+        margin-top: 10px;
+      }
+      .item .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        background: rgba(255, 107, 44, 0.95);
+        box-shadow: 0 0 0 6px rgba(255, 107, 44, 0.12);
+        margin-top: 4px;
+        flex: 0 0 auto;
+      }
+      .item .t {
+        font-weight: 800;
+        margin: 0;
+      }
+      .item .s {
+        color: var(--muted);
+        margin: 2px 0 0;
+      }
+      form label {
+        display: block;
+        font-weight: 800;
+        margin: 12px 0 8px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.4);
+        color: var(--text);
+        outline: none;
+        font: inherit;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: rgba(255, 107, 44, 0.55);
+        box-shadow: 0 0 0 4px rgba(255, 107, 44, 0.12);
+      }
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 920px) {
+        .contact {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Footer */
+      footer {
+        padding: 34px 0 54px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.6);
+      }
+      footer .wrap.foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+        flex-wrap: wrap;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+      footer b {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      /* Mobile menu */
+      .drawer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 2000;
+        padding: 18px;
+      }
+      .drawer .sheet {
+        max-width: 520px;
+        margin: 0 auto;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(10, 10, 10, 0.92);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+        padding: 14px;
+      }
+      .drawer a {
+        display: block;
+        padding: 14px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+        margin-top: 10px;
+        font-weight: 800;
+      }
+      .drawer a:hover {
+        border-color: rgba(255, 107, 44, 0.4);
+        background: rgba(255, 107, 44, 0.06);
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Topbar -->
+    <header class="topbar" role="banner">
+      <div class="wrap nav">
+        <a class="brand" href="#inicio" aria-label="Menechav">
+          <img src="assets/logo.png" alt="Logo Menechav" />
+          <div class="name">
+            <strong>MENECHAV LTDA.</strong>
+            <span>Mejillones • Región de Antofagasta</span>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Navegación principal">
+          <a href="#servicios">Servicios</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="#contacto" title="Contacto rápido">
+            Contactar <small>24 h</small>
+          </a>
+          <button
+            class="btn btn-primary menu-toggle"
+            id="openMenu"
+            aria-label="Abrir menú"
+          >
+            Menú
+          </button>
+          <a class="btn btn-primary" href="#contacto"> Solicitar cotización </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="sheet" role="dialog" aria-modal="true" aria-label="Menú">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+          "
+        >
+          <div class="brand" style="min-width: auto">
+            <img src="assets/logo.png" alt="Logo Menechav" />
+            <div class="name">
+              <strong>MENECHAV</strong>
+              <span>Servicios industriales</span>
+            </div>
+          </div>
+          <button class="btn btn-ghost" id="closeMenu" aria-label="Cerrar menú">
+            Cerrar
+          </button>
+        </div>
+
+        <a href="#servicios" data-close>Servicios</a>
+        <a href="#proyectos" data-close>Proyectos</a>
+        <a href="#clientes" data-close>Clientes</a>
+        <a href="#contacto" data-close>Contacto</a>
+        <a
+          class="btn btn-primary"
+          href="#contacto"
+          data-close
+          style="margin-top: 14px; width: 100%"
+          >Solicitar cotización</a
+        >
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <main id="inicio" class="hero">
+      <div class="wrap">
+        <div>
+          <div class="pill">
+            <b>Operación</b>
+            <span>Región de Antofagasta • Desde 2010</span>
+          </div>
+
+          <h1>
+            <span>Servicios industriales</span> y obras para minería, energía e
+            infraestructura
+          </h1>
+
+          <p>
+            Somos una empresa contratista con base en Mejillones, orientada al
+            servicio industrial. Ejecutamos obras civiles, servicios eléctricos
+            y mantenciones con foco en seguridad, calidad y continuidad
+            operacional.
+          </p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+            <a class="btn btn-ghost" href="#proyectos">Ver experiencia</a>
+          </div>
+
+          <div style="margin-top: 16px; color: var(--muted2); font-weight: 700">
+            <span style="color: rgba(255, 255, 255, 0.85)"
+              >Contacto directo:</span
+            >
+            <a href="mailto:jchavez@menechav.cl">jchavez@menechav.cl</a> ·
+            <a href="mailto:mmeneses@menechav.cl">mmeneses@menechav.cl</a>
+          </div>
+        </div>
+
+        <aside class="card hero-card" aria-label="Ficha rápida">
+          <div class="badge"><i></i> Disponibilidad para faena y planta</div>
+          <div class="lines">
+            <div class="line">
+              <div class="k">Razón social</div>
+              <div class="v">Soc. Menechav Ltda.</div>
+            </div>
+            <div class="line">
+              <div class="k">Ubicación</div>
+              <div class="v">Mejillones, Región de Antofagasta</div>
+            </div>
+            <div class="line">
+              <div class="k">Teléfonos</div>
+              <div class="v">
+                <a href="tel:+56994337933">+56 9 9433 7933</a> ·
+                <a href="tel:+56994337945">+56 9 9433 7945</a> ·
+                <a href="tel:+56995801120">+56 9 9580 1120</a>
+              </div>
+            </div>
+            <div class="line">
+              <div class="k">Web</div>
+              <div class="v">
+                <a href="https://menechav.cl" target="_blank" rel="noopener"
+                  >www.menechav.cl</a
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Services -->
+    <section id="servicios">
+      <div class="wrap">
+        <span class="section-label">Servicios</span>
+        <div class="section-head">
+          <div>
+            <h2>Soluciones integrales para operación industrial</h2>
+            <p>
+              Organizamos nuestro portafolio por capacidades para que sea fácil
+              cotizar y asignar alcance.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="service">
+            <div class="icon">⚡</div>
+            <h3>Servicios eléctricos</h3>
+            <p>
+              Reparación, montaje y mantención para instalaciones industriales.
+            </p>
+            <ul>
+              <li>Baja y media tensión</li>
+              <li>Fuerza, control y alumbrado</li>
+              <li>Mantención de líneas eléctricas</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🏗️</div>
+            <h3>Obras civiles y construcción</h3>
+            <p>Ejecución de obras, edificación y apoyo a infraestructura.</p>
+            <ul>
+              <li>Construcción, remodelaciones y edificaciones</li>
+              <li>Movimientos de tierra, radieres y fundaciones</li>
+              <li>Instalaciones sanitarias y obras asociadas</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🔧</div>
+            <h3>Mantenciones industriales</h3>
+            <p>
+              Mantención preventiva y correctiva para continuidad operacional.
+            </p>
+            <ul>
+              <li>Mantenciones generales</li>
+              <li>Equipos y apoyo de planta</li>
+              <li>Servicios generales en terreno</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🧼</div>
+            <h3>Aseo industrial</h3>
+            <p>
+              Servicios de aseo industrial adaptados a estándares de seguridad y
+              operación.
+            </p>
+            <ul>
+              <li>Procedimientos y control en áreas industriales</li>
+              <li>Apoyo en paradas y campañas</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🧱</div>
+            <h3>Estructuras metálicas y pintura</h3>
+            <p>
+              Fabricación y trabajos de terminación para infraestructura
+              industrial.
+            </p>
+            <ul>
+              <li>Fabricación de estructuras metálicas</li>
+              <li>Pintura interior/exterior</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🚜</div>
+            <h3>Apoyo operacional</h3>
+            <p>Recursos y logística para proyectos.</p>
+            <ul>
+              <li>Arriendo de maquinarias</li>
+              <li>Transporte de personal</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="proyectos">
+      <div class="wrap">
+        <span class="section-label">Experiencia</span>
+
+        <div class="section-head">
+          <div>
+            <h2>Experiencia en proyectos industriales</h2>
+            <p>
+              Proyectos relevantes en energía, minería e infraestructura en la
+              Región de Antofagasta.
+            </p>
+          </div>
+        </div>
+
+        <div class="projects">
+          <div
+            class="project project--img"
+            style="--bg: url(&quot;assets/proyecto-gnl.jpg&quot;)"
+          >
+            <b>Tanque Fase II — Terminal GNL</b>
+            <div class="meta">GNL Mejillones (GNLM) • Mejillones</div>
+            <p class="desc">
+              Apoyo en obras civiles y coordinación operativa en terreno bajo
+              estándares industriales.
+            </p>
+          </div>
+
+          <div
+            class="project monesa"
+            style="--bg: url(&quot;assets/proyecto-monesa.png&quot;)"
+          >
+            <b>Proyecto industrial — MONESA</b>
+            <div class="meta">Referencia: MONESA • Macrozona norte</div>
+            <p class="desc">
+              Apoyo a faena para ejecución industrial: preparación de áreas,
+              soporte a montaje y coordinación.
+            </p>
+          </div>
+
+          <div
+            class="project project--img"
+            style="--bg: url(&quot;assets/proyecto-cerro-dominador.png&quot;)"
+          >
+            <b>Fabricación y montaje de tanque — Energía</b>
+            <div class="meta">Cerro Dominador • Región de Antofagasta</div>
+            <p class="desc">
+              Apoyo a fabricación/montaje y trabajos asociados para
+              infraestructura del sector energía.
+            </p>
+          </div>
+
+          <div
+            class="project project--img"
+            style="--bg: url(&quot;assets/proyecto-fcab.png&quot;)"
+          >
+            <b>Infraestructura ferroviaria — FCAB</b>
+            <div class="meta">Ferrocarril de Antofagasta a Bolivia (FCAB)</div>
+            <p class="desc">
+              Soporte en infraestructura y sistemas operacionales en estación
+              ferroviaria.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; color: var(--muted2); font-weight: 700">
+          Proyectos ejecutados para entornos industriales del norte de Chile.
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section id="clientes">
+      <div class="wrap">
+        <span class="section-label">Confianza</span>
+
+        <div class="section-head">
+          <div>
+            <h2>Clientes y entornos donde hemos trabajado</h2>
+          </div>
+        </div>
+
+        <div class="logos" aria-label="Clientes">
+          <!-- OJO: este sí existe en tu carpeta -->
+          <div class="logo-tile">
+            <img
+              src="assets/gnlm.png"
+              alt="GNL Mejillones (GNLM)"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">GNLM</span>
+          </div>
+
+          <!-- Estos por ahora quedan en texto hasta que tengas los archivos -->
+          <div class="logo-tile">
+            <img
+              src="assets/engie.png"
+              alt="ENGIE"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">ENGIE</span>
+          </div>
+
+          <div class="logo-tile">
+            <img
+              src="assets/aes.png"
+              alt="AES Gener"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">AES Gener</span>
+          </div>
+
+          <div class="logo-tile">
+            <img
+              src="assets/fcab.png"
+              alt="FCAB"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">FCAB</span>
+          </div>
+
+          <!-- Aguas Antofagasta -->
+          <div class="logo-tile">
+            <img
+              src="assets/aguas-antofagasta.png"
+              alt="Aguas Antofagasta"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">Aguas Antofagasta</span>
+          </div>
+
+          <!-- Puerto Mejillones -->
+          <div class="logo-tile">
+            <img
+              src="assets/puerto-mejillones.jpeg"
+              alt="Puerto Mejillones"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">Puerto Mejillones</span>
+          </div>
+
+          <!-- Ilustre Municipalidad de Mejillones -->
+          <div class="logo-tile">
+            <img
+              src="assets/municipalidad-mejillones.png"
+              alt="Municipalidad de Mejillones"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">Municipalidad Mejillones</span>
+          </div>
+
+          <!-- Placeholder temporal -->
+          <div class="logo-tile">
+            <img
+              src="assets/wom.svg"
+              alt="WON"
+              loading="lazy"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.opacity = 1;
+              "
+            />
+            <span class="logo-fallback">WON</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto">
+      <div class="wrap">
+        <span class="section-label">Contacto</span>
+        <div class="section-head">
+          <div>
+            <h2>Conversemos sobre tu proyecto</h2>
+            <p>
+              Te respondemos con una primera orientación y los datos necesarios
+              para cotizar.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="panel">
+            <h3 style="margin: 0 0 8px; letter-spacing: -0.3px">
+              Datos de la empresa
+            </h3>
+            <p style="margin: 0; color: var(--muted)">
+              Soc. Menechav Ltda. — Sitio 1, Manzana A, Mejillones.
+            </p>
+
+            <div class="item">
+              <div class="dot"></div>
+              <div>
+                <p class="t">Teléfonos</p>
+                <p class="s">
+                  <a href="tel:+56994337933">+56 9 9433 7933</a><br />
+                  <a href="tel:+56994337945">+56 9 9433 7945</a><br />
+                  <a href="tel:+56995801120">+56 9 9580 1120</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="dot"></div>
+              <div>
+                <p class="t">Correo</p>
+                <p class="s">
+                  <a href="mailto:jchavez@menechav.cl">jchavez@menechav.cl</a
+                  ><br />
+                  <a href="mailto:mmeneses@menechav.cl">mmeneses@menechav.cl</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="dot"></div>
+              <div>
+                <p class="t">Identificación</p>
+                <p class="s">RUT: 76.115.664-0</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="dot"></div>
+              <div>
+                <p class="t">Ubicación</p>
+                <p class="s">Mejillones • Región de Antofagasta • Chile</p>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 14px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                class="btn btn-primary"
+                href="mailto:contacto@menechav.cl?subject=Solicitud%20de%20cotización%20web%20Menechav"
+                >Enviar correo</a
+              >
+              <a class="btn btn-ghost" href="#inicio">Volver arriba</a>
+            </div>
+
+            <p style="margin: 14px 0 0; color: var(--muted2); font-weight: 700">
+              Tip: agrega un botón de WhatsApp cuando confirmes el número
+              principal.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin: 0 0 8px; letter-spacing: -0.3px">
+              Formulario (envía por correo)
+            </h3>
+            <p style="margin: 0; color: var(--muted)">
+              Este formulario abre tu cliente de correo con el mensaje listo
+              (sin servidor).
+            </p>
+
+            <form id="quoteForm">
+              <div class="form-row">
+                <div>
+                  <label for="name">Nombre</label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Nombre y cargo"
+                  />
+                </div>
+                <div>
+                  <label for="phone">Teléfono</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="+56 9 ..."
+                  />
+                </div>
+              </div>
+
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="tucorreo@empresa.cl"
+              />
+
+              <label for="topic">Tipo de servicio</label>
+              <input
+                id="topic"
+                name="topic"
+                placeholder="Obras civiles / Eléctrico / Mantención / Aseo industrial..."
+              />
+
+              <label for="msg">Descripción</label>
+              <textarea
+                id="msg"
+                name="msg"
+                required
+                placeholder="Ubicación, plazo, alcance, restricciones del sitio, etc."
+              ></textarea>
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+                style="width: 100%; margin-top: 12px"
+              >
+                Enviar solicitud
+              </button>
+
+              <p
+                style="margin: 12px 0 0; color: var(--muted2); font-weight: 700"
+              >
+                Si luego quieres que el formulario llegue a un inbox sin
+                depender de mailto, se conecta a un servicio (Formspree/Netlify
+                Forms) en 10 minutos.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div class="wrap foot">
+        <div style="display: flex; gap: 12px; align-items: center">
+          <img src="assets/logo.png" style="height: 120px; width: auto" />
+          <div>
+            <b>MENECHAV LTDA.</b><br />
+            <span>Servicios industriales • Mejillones, Antofagasta</span>
+          </div>
+        </div>
+        <div>
+          <div><b>© 2026</b> Sociedad Menechav Ltda.</div>
+          <div style="margin-top: 6px">RUT 76.115.664-0 • www.menechav.cl</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile drawer
+      const drawer = document.getElementById("drawer");
+      const openBtn = document.getElementById("openMenu");
+      const closeBtn = document.getElementById("closeMenu");
+
+      function openDrawer() {
+        drawer.style.display = "block";
+        drawer.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        drawer.style.display = "none";
+        drawer.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      if (openBtn) openBtn.addEventListener("click", openDrawer);
+      if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+
+      drawer.addEventListener("click", (e) => {
+        if (e.target === drawer) closeDrawer();
+      });
+      drawer.querySelectorAll("[data-close]").forEach((a) => {
+        a.addEventListener("click", closeDrawer);
+      });
+
+      // Mailto form
+      const form = document.getElementById("quoteForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const topic = document.getElementById("topic").value.trim();
+        const msg = document.getElementById("msg").value.trim();
+
+        const subject = encodeURIComponent(
+          "Solicitud de cotización web — " + (topic || "Servicios"),
+        );
+        const body = encodeURIComponent(
+          "Nombre: " +
+            name +
+            "\n" +
+            "Teléfono: " +
+            phone +
+            "\n" +
+            "Email: " +
+            email +
+            "\n" +
+            "Servicio: " +
+            (topic || "-") +
+            "\n\n" +
+            "Detalle:\n" +
+            msg +
+            "\n",
+        );
+
+        window.location.href =
+          "mailto:contacto@menechav.cl?subject=" + subject + "&body=" + body;
+      });
+    </script>
+  </body>
+</html>
