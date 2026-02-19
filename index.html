@@ -41,6 +41,12 @@
         scroll-behavior: smooth;
         scroll-padding-top: 100px;
       }
+      /* MOBILE FIX: Menos scroll padding */
+      @media (max-width: 920px) {
+        html {
+          scroll-padding-top: 80px;
+        }
+      }
       body {
         margin: 0;
         font-family:
@@ -227,12 +233,22 @@
       .menu-toggle {
         display: none;
       }
+      /* MOBILE FIX: Navbar compacta */
       @media (max-width: 920px) {
         .menu {
           display: none;
         }
         .menu-toggle {
           display: inline-flex;
+        }
+        /* Logo más pequeño */
+        .brand img {
+          height: 60px;
+        }
+        /* Botones CTA más pequeños */
+        .nav-cta .btn {
+          padding: 10px 14px;
+          font-size: 0.85rem;
         }
       }
 
@@ -375,25 +391,57 @@
         text-decoration-color: rgba(255, 107, 44, 0.6);
       }
 
-      /* Tablet / Mobile layout */
+      /* MOBILE FIX: Hero en móvil */
       @media (max-width: 920px) {
         .hero .wrap {
           grid-template-columns: 1fr;
         }
+        .hero {
+          padding: 80px 0 40px;
+        }
+        .hero-card {
+          display: none;
+        }
+        .hero .cta {
+          width: 100%;
+        }
+        .hero .cta .btn {
+          flex: 1;
+        }
       }
-
-      /* Mobile: different crop so the tank stays visible */
+      /* MOBILE FIX: Hero background centrado */
       @media (max-width: 768px) {
         .hero {
-          /* tweak this if needed: 50–65% works well depending on your phone */
-          background-position: 55% 70%;
+          background-position: center center;
+          background-image:
+            linear-gradient(
+              180deg,
+              rgba(10, 10, 10, 0.92) 0%,
+              rgba(10, 10, 10, 0.75) 50%,
+              rgba(10, 10, 10, 0.65) 100%
+            ),
+            url("assets/hero-gnl.jpg");
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 1rem;
         }
       }
 
       /* Section styling */
       section {
         padding: 56px 0;
-      } /* reducido */
+      }
+      /* MOBILE FIX: Menos padding */
+      @media (max-width: 768px) {
+        section {
+          padding: 40px 0;
+        }
+      }
+
+      /* reducido */
       .section-head {
         display: flex;
         justify-content: space-between;
@@ -821,6 +869,17 @@
       }
       footer b {
         color: rgba(255, 255, 255, 0.86);
+      }
+      /* MOBILE FIX: Footer */
+      @media (max-width: 920px) {
+        footer .wrap.foot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+        }
+        footer .wrap.foot > div:first-child img {
+          height: 80px;
+        }
       }
 
       /* Mobile menu */
