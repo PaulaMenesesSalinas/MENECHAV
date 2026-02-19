@@ -4,7 +4,7 @@ Sitio web de Sociedad Menechav Ltda. - Servicios industriales en Mejillones, Ant
 
 ## 🌐 Ver sitio en vivo
 
-**https://paulamenesesalinas.github.io/MENECHAV/**
+**https://paulamenesessalinas.github.io/MENECHAV/**
 
 ## 📋 Descripción
 
